@@ -1,0 +1,106 @@
+= trustless secure transaction systems
+decentralized internet is already implemented by GNUnet, but no one is talking about it
+compare it with the hype around decentralized transaction systems, aka blockchains or distributed ledgers,
+	which are inefficient and do not scale
+
+in decentralized transaction systems, we have a P2P network where all nodes store the same ledger,
+	which can be extended based on permissionless consensus between nodes
+distributed ledgers are authenticated by mass collaboration powered by collective self'interests
+appropriate incentives that will continue to encourage honest participation in the network,
+	is a key component of the consensus protocol
+anyone can participate in consensus,
+	though one’s voting power is typically proportional to its possession of network resources,
+	such as computation power, token wealth, storage space, etc
+see "a survey of distributed consensus protocols for blockchain networks"
+	"https://arxiv.org/pdf/1904.04098.pdf"
+
+so in decentralized transaction systems:
+, every full node has a copy of the ledger (an always growing database)
+	typical blockchains with their currently limited number of users, are hundreds of gigabytes
+	now just imagine that expanded on a global scale
+	also note that, full nodes are necessary if you want private and trustless transactions
+	using light nodes means we have to trust miners; how is that better than trusting banks
+, transactions are slow
+, the system is completely isolated from external world
+	we cannot import external money and assets to the system
+	a necessary feature, if we really want to replace current monetary system
+
+it's clear that the motivation behind blockchains is not to replace the current corrupted monetary system,
+	because it's just not capable to do that, by design
+its only purpose is to create a side system for criminal activities
+"http://my.pages.de/illegalblockchains"
+
+an ideal transaction system would be trustless, and avoids having a single point of failure
+this doesn't necessarily mean that we have to completely decentralize everything
+transactions intrinsically need some centralized parts
+trying to decentralize it by force, based on an ideology, leads to hideous creatures like Bitcoin
+
+we need special nodes (let's call them IO nodes):
+, to import assets from external world
+, to prevent double spending, without the need for a complicated consensus mechanism,
+	hurting efficiency and scalability
+
+tokens contain two fields:
+, token type: determining if it's money, or any other kind of asset
+, value+hash (for money tokens), or an identifier encoding the physical aspects of an asset
+
+token history file: a file with the token as its name, containing the history of the token
+each line has three parts separated by space:
+, timestamp
+, a public key made by the then owner
+, signature made by the private key corresponding to the public key in the previous line
+	in the case of the first line, the signature made by the IO node
+
+tokens are produced and signed by IO nodes based on real resources
+to prevent a single point of failure, tokens will be signed by multiple IO nodes
+
+each IO node publishes all the issued tokens
+for each token, a file will be published, with the token as the file name
+	the file contains the signature of the latest owner
+	the signature is made by the owner's public key, not the key in the history file
+so IO nodes can't make fake tokens, or double spend a token, without being detected
+violations made by IO nodes (double spending, refusing valid transactions), will be reported,
+	to remove them from next release of GNUnet
+IO nodes do not have any power, they are just there to prevent double spending
+you own your tokens signed off by IO nodes and all the previous owners
+
+transaction request:
+, timestamp
+, list of provided tokens (plus a request for changes if needed)
+, list of requested asset tokens, or the value requested in exchange, or a contract
+, address of the receiver
+
+first a transaction request is sent from sender to the receiver and all IO nodes
+then the receiver sends a compatible answer to IO nodes
+IO nodes sign the request and answer, and send it back to the sender and receiver
+sender and receiver sign off their tokens and send them to the IO nodes
+IO nodes send the tokens to their new owners
+if any IO node receives the signed off tokens, but does not send them back to their new owners,
+	they can be reported using the transaction request/answer which has their signature
+
+the more i think, the more i'm convinced that identities capable to have tokens, must be related to real persons
+otherwise, criminals can force people (by kidnapping, violence ...) to send their money/assets to anonymous accounts
+one can always have different identities hidden from others, but identifiable by IO nodes
+
+taxes, i think, are out of the scope of transaction systems
+they must be evaluated according to the kind of job and a lot of other factors (like environmental impact)
+nonetheless, because of IO nodes, some kind of surveillance can be implemented,
+	to prevent criminal activities, without violating privacy of users
+
+= voting
+society is made of groups with different specialties, each group can choose their leaders
+election can in fact be a simple, cheap, dynamic, and completely reliable process
+the only thing we need, in order to completely trust the result of an election,
+	is to release the final result in a table
+every one can see if her vote is entered correctly or not
+since the total number of voters is known, there is no place for cheating
+votes are submitted based on anonymous code which only its owner knows of its correspondence with his name
+
+real persons submit a public key in their companies, and then can use their private keys to sign their votes
+the complete list of votes will be published by the company, so anyone can check her own vote
+
+this method is so simple and cheap that can be easily done in short periods (every month or every 3 months)
+actually people can vote any time they want, the result table will be updated continuously
+	but the election will be made in discrete periods
+now compare this simple method with what we call democracy nowadays
+this clearly shows us how the ones in power, play with people, and treat them like fools
