@@ -13,6 +13,7 @@ anyone can participate in consensus,
 	such as computation power, token wealth, storage space, etc
 see "a survey of distributed consensus protocols for blockchain networks"
 	"https://arxiv.org/pdf/1904.04098.pdf"
+https://minepi.com/white-paper/
 
 so in decentralized transaction systems:
 , every full node has a copy of the ledger (an always growing database)
@@ -61,6 +62,8 @@ for each token, a file will be published, with the token as the file name
 so IO nodes can't make fake tokens, or double spend a token, without being detected
 violations made by IO nodes (double spending, refusing valid transactions), will be reported,
 	to remove them from next release of GNUnet
+receivers of a token can search GNUnet (using the token as a keyword) for violations
+this is why we don't need a blockchain; blockchains are necessary only on censorable networks
 IO nodes do not have any power, they are just there to prevent double spending
 you own your tokens signed off by IO nodes and all the previous owners
 
